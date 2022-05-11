@@ -8,12 +8,22 @@
     background: none;
 }
 
+.aparecer {
+    display: flex;
+}
+
+.delizado {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
 .hidden {
     display: none;
 }
 
 .container {
-    padding: 0px 30px;
+    padding: 0px 10px;
+    max-width: 1735px;
+    margin: 0 auto;
 }
 
 body {
@@ -31,17 +41,29 @@ header {
     justify-content: space-between;
 }
 
-header .container {
-    height: 50px;
+header>div:last-child {
     display: flex;
-    line-height: 60px;
+    height: 100%;
+    align-items: end;
+}
+
+header .container {
+    height: 71px;
+    display: flex;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    width: 100%;
+    z-index: 5;
+    position: fixed;
+    max-width: none;
+    transition: background ease .3s;
 }
 
 header .flex {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 70px;
+    max-width: 1735px;
+    margin: 0 auto;
 }
 
 header .flex .flex-column:first-child {
@@ -49,10 +71,20 @@ header .flex .flex-column:first-child {
     display: flex;
 }
 
+.logo figure {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
-    max-width: 70px;
-    width: 70px;
+    width: 95px;
     margin-right: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
 }
 
 header nav span {
@@ -86,6 +118,7 @@ header nav ul {
     justify-content: space-around;
     align-items: center;
     border-top: 2px solid #e5e5e5;
+    top: 46px;
 }
 
 header nav ul::after {
@@ -99,11 +132,14 @@ header nav ul::after {
 header nav ul li {
     height: auto;
     line-height: normal;
-    font-size: 14px;
 }
 
 header nav ul li a {
     color: #e5e5e5;
+}
+
+header nav ul li a:hover {
+    color: #b3b3b3;
 }
 
 header .flex-column:last-child {
@@ -115,7 +151,7 @@ header .flex-column:last-child .menu-usuario {
     display: flex;
     align-items: center;
     height: 100%;
-    width: 28px;
+    width: 35px;
 }
 
 header .flex-column:last-child .menu-usuario div {
@@ -127,11 +163,13 @@ header .flex-column:last-child .menu-usuario div {
 
 header .flex-column:last-child .menu-usuario div img {
     width: 100%;
+    border-radius: 5px;
 }
 
 header .sombra {
     height: 15px;
     background: linear-gradient(to top, rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.2), rgba(20, 20, 20, 0));
+    width: 100%;
 }
 
 main.pagina-inicial {
@@ -141,8 +179,6 @@ main.pagina-inicial {
     z-index: 2;
     bottom: 240px;
 }
-
-.secao-destaque {}
 
 .secao-destaque-conteudo {
     width: 100%;
@@ -208,9 +244,9 @@ main.pagina-inicial {
 
 .secao-catalogo-titulo {
     color: #e5e5e5;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
 }
 
 .secao-catalogo .flex {
@@ -221,7 +257,6 @@ main.pagina-inicial {
 
 .secao-catalogo .flex.maior {
     grid-template-columns: 1fr;
-    overflow: hidden;
 }
 
 .secao-catalogo .flex .flex-column img {
@@ -232,42 +267,165 @@ main.pagina-inicial {
 
 footer {
     position: relative;
-    bottom: 140px;
+    bottom: 167px;
+    height: 150px;
+}
+
+footer a,
+footer p {
+    color: gray;
+}
+
+footer a {
+    font-size: 13px;
 }
 
 footer .flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    max-width: 70%;
+    margin: 0 auto;
+    border-top: 1px solid rgb(128 128 128 / 26%);
+    padding-top: 44px;
 }
 
-footer .flex-column {
-    margin-bottom: 20px;
-}
-
-footer .flex-column:first-child ul {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-footer .flex-column:first-child ul li {
-    margin-right: 20px;
-}
-
-footer .flex-column:first-child ul li a {
-    color: grey;
-}
-
-footer .redes-sociais {
-    width: 50%;
+footer .info {
     display: flex;
     justify-content: space-between;
+    height: 170px;
+}
+
+footer .flex-column:first-child {
+    width: 80%;
+}
+
+footer .flex-column:first-child nav {
+    height: 100%;
+}
+
+footer .flex-column:first-child nav ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer .flex-column:last-child {
+    width: 20%;
+}
+
+footer .flex-column:last-child ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+footer .flex-column:last-child ul li {
+    margin-bottom: 15px;
 }
 
 footer .redes-sociais img {
     width: 20px;
 }
 
-.copyright {
-    color: grey;
+footer .copyright {
+    margin-top: 40px;
+}
+
+footer .copyright p {
+    font-size: 11px;
+}
+
+@media (min-width: 425px) {
+    .secao-catalogo .flex.maior {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    }
+    .secao-catalogo-titulo {
+        font-size: 26px;
+    }
+    .logo img {
+        width: 115px;
+    }
+}
+
+@media (min-width: 800px) {
+    .container {
+        padding: 0px 20px;
+    }
+    header {
+        height: 58vh;
+    }
+    main.pagina-inicial {
+        bottom: 374px;
+    }
+    .secao-destaque-conteudo figure img {
+        max-width: 390px;
+    }
+    .secao-destaque-conteudo figure img {
+        max-width: 357px;
+        font-size: 18px;
+    }
+    .secao-destaque-buttons button {
+        padding: 11px 39px;
+    }
+    .secao-destaque-buttons img {
+        width: 19px;
+    }
+    .secao-destaque-conteudo p {
+        margin-bottom: 20px;
+    }
+    .secao-catalogo .flex {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 900px) {
+    main.pagina-inicial {
+        bottom: 390px;
+    }
+    .secao-catalogo .flex.maior {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .secao-destaque-conteudo figure img {
+        max-width: 464px;
+        margin-bottom: 14px;
+    }
+    .secao-destaque-conteudo p {
+        max-width: 326px;
+        font-size: 17px;
+    }
+    header nav ul {
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        position: initial;
+        z-index: 0;
+        justify-content: start;
+        align-items: flex-start;
+        border-top: 0px solid rgb(229, 229, 229);
+    }
+    header nav {
+        display: flex;
+        align-items: center;
+    }
+    header nav ul li {
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    header nav span {
+        display: none;
+    }
+}
+
+@media (min-width: 1300px) {
+    .secao-catalogo .flex {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .secao-catalogo .flex.maior {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    main.pagina-inicial {
+        bottom: 400px;
+    }
 }
